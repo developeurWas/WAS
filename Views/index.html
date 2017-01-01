@@ -2,17 +2,81 @@
 <html>
 	<head>
 		<title></title>
-		<link rel="stylesheet" href="Styles/bootstrap.css" />
-		<link rel="stylesheet" href="Styles/index.css" />
+		<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" type="text/css" href="Styles/bootstrap.css" />
+		<link rel="stylesheet" type="text/css" href="Styles/index.css" />
+
 	</head>
 	<body ng-app="app" ng-controller="ctrl">
-		{{json()}}
+
+		<!--
+			La barre de navigation
+		-->
+		<nav class="navbar navbar-default navbar-fixed-top navbar-color" role="navigation">
+		  <div class="container">
+				<div class="navbar-header text-white">
+					<button type="button" class="navbar-toggle" ng-init="navCollapsed = true" ng-click="navCollapsed = !navCollapsed">
+						<span class="sr-only">Toggle navigation</span>
+					  <span class="icon-bar"></span>
+					  <span class="icon-bar"></span>
+					  <span class="icon-bar"></span>
+				  </button>
+					<a class="navbar-brand" href="#">Puzzle Project</a>
+				</div>
+				<div uib-collapse="navCollapsed" class="collapse navbar-collapse">
+					<ul class="nav navbar-left navbar-nav">
+						<li>
+							<a href="#">A propos<br></a>
+						</li>
+						<li>
+							<a href="#">Actualités<br></a>
+						</li>
+						<li>
+							<a href="#">Projets</a>
+						</li>
+						<li>
+							<a href="#">Contact<br></a>
+						</li>
+					</ul>
+						<ul class="nav navbar-nav navbar-right">
+						<li uib-dropdown>
+							<a uib-dropdown-toggle>Langue<span class="caret"></span></a>
+							<ul uib-dropdown-menu>
+								<li><a ui-sref="b">Français</a></li>
+								<li><a ui-sref="a">Anglais</a></li>
+							</ul>
+						</li>
+						<a class="btn btn-success navbar-btn navbar-right">Faire un don</a>
+					</ul>
+				</div>
+		  </div>
+		</nav>
+		<p>
+			{{json()}}
+		</p>
+		</div>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 text-center">
+					<h1 class="text-primary">Présentation</h1>
+					<p class="text-primary">Description</p>
+					<br>
+					<br>
+					<a class="btn btn-info btn-lg">Accéder à la présentation</a>
+				</div>
+			</div>
+		 </div>
+
+
+
+
 		<script src="../Angular/angular.js"></script>
 		<script src="../Angular/angular-animate.js"></script>
 		<script src="../Angular/angular-resource.js"></script>
 		<script src="../Angular/angular-route.js"></script>
 		<script src="../Angular/angular-touch.js"></script>
-		<script src="../Angular/ui-bootstrap-tpls-1.3.3.min.js"></script>
+		<script src="../Angular/ui-bootstrap-tpls.min.js"></script>
 		<script src="../Controllers/index.js"></script>
 	</body>
 </html>
