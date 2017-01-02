@@ -1,0 +1,13 @@
+
+<link rel="stylesheet" href="Styles/home.css" />
+
+<section>
+  <div uib-carousel active="active" interval="myInterval" no-wrap="noWrapSlides">
+    <div uib-slide ng-repeat="image in listImages track by image.id" index="image.id">
+      <img ng-src="{{image.img}}" style="margin:auto;" class="carousel-img">
+      <div class="carousel-caption">
+        <h4>Slide {{image.id}}</h4>
+      </div>
+    </div>
+  </div>
+</section>
