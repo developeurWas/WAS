@@ -1,0 +1,53 @@
+<div class="container">
+  <div class="row">
+    <br />
+    <a href="#/projects" class="btn btn-primary"><i class="fa fa-undo"></i> Retour</a>
+    <h1 class="page-header">
+      Créez votre projet !
+    </h1>
+  </div>
+  <div clas="row">
+    <div class="col-md-12">
+      <form novalidate name="newProjectForm">
+        <div class="form-group-lg">
+          <div class="input-group">
+            <span class="input-group-addon">Nom du projet</span>
+            <input type="text" ng-model="project.title" class="form-control" placeholder="Donnez un nom à votre projet..." aria-describedby="basic-addon1">
+          </div>
+          <br />
+          <div class="input-group">
+            <span class="input-group-addon">Description</span>
+            <textarea maxlength="150" rows="3"  type="text" ng-model="project.title" class="form-control" placeholder="Décrivez rapidement votre projet et son objectif... (150 caractères max)" aria-describedby="basic-addon1"></textarea>
+          </div>
+          <br />
+          <div class="input-group">
+            <span class="input-group-addon">Image principale</span>
+            <input type="text" ng-model="project.img" class="form-control" placeholder="Lien de l'image : http://..." aria-describedby="basic-addon1">
+            <span class="input-group-addon"><i class="fa fa-picture-o"></i></span>
+          </div>
+          <br />
+          <h2 class="page-header">Page de présentation</h2>
+          <p class="form-text text-muted">
+            Mettez en forme la page de présentation de votre projet selon vos envies. Vous pouvez insérer des liens, images, vidéos...
+          </p>
+          <div class="input-group">
+            <div text-angular="text-angular" name="htmlcontent" ng-model="project.pres" ta-disabled='disabled' id="pres"></div>
+          </div>
+          <br />
+          <div class="well" ng-click="conditions = !conditions">
+            <div class="input-group">
+              <input type="checkbox" ng-model="conditions" ng-click="conditions = !conditions"/>
+               J'accepte les conditions d'utilisations
+            </div>
+          </div>
+          <div class="input-group submit-button-group">
+            <button type="submit" ng-click="createProject(project)" class="btn btn-primary">Créer !</button>
+          </div>
+
+
+          <br />
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

@@ -8,6 +8,7 @@ var puzzleProjectApp = angular.module('puzzleProjectApp',
 		'ngRoute',
 		'ngSanitize',
 		'ngResource',
+		'textAngular',
 		'appControllers'	//Module contenant nos controlleurs
 	]
 );
@@ -23,11 +24,33 @@ puzzleProjectApp.config(['$routeProvider',
             templateUrl: 'home.html',	//Template de la page à afficher
             controller: 'homeCtrl'	//Controleur correspondant au template
         })
+				.when('/projects',{
+						templateUrl: 'projects.html',
+						controller: 'projectsCtrl'
+				})
+				.when('/about',{
+						templateUrl: 'about.html',
+						controller: 'homeCtrl'
+				})
+				.when('/newproject',{
+					templateUrl: 'formNewProject.html',
+					controller: 'newProjectCtrl'
+				})
         .otherwise({
           redirectTo: '/home'		//Chemin par défaut
         })
     }
 ]);
+
+puzzleProjectApp.filter('startFrom', function () {
+	return function (input, start) {
+		if (input) {
+			start = +start;
+			return input.slice(start);
+		}
+		return [];
+	};
+});
 
 //Déclaration du module contenant nos controleurs
 var appControllers = angular.module('appControllers', []);
