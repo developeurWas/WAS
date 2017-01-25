@@ -1,4 +1,5 @@
 
 .carousel-img{
   height: calc(100vh - 51px);
+  width: 100%;
 }

@@ -1,0 +1,32 @@
+.container .jumbotron, .container-fluid .jumbotron {
+    padding-right: 15px;
+    padding-left: 25px;
+    border-radius: 6px;
+    padding-top: 1px;
+}
+
+.project-thumbnail{
+  height: calc((100vh - 51px) / 1.35) !important;
+}
+
+.project-image{
+  height: 60% !important;
+}
+
+.project-caption{
+  height: 30% !important;
+  overflow-wrap: break-word;
+}
+
+@media screen and (min-width: 768px){
+  .project-thumbnail{
+      height: calc((100vh - 51px) / 1.7) !important;
+  }
+  .project-image{
+    height: 50% !important;
+  }
+  .project-caption{
+    height: 40% !important;
+    overflow-wrap: break-word;
+  }
+}

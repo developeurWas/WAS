@@ -6,9 +6,9 @@
     <div uib-slide ng-repeat="image in listImages track by image.id" index="image.id">
       <img ng-src="{{image.img}}" style="margin:auto;" class="carousel-img">
       <div class="carousel-caption">
-        <h4>Slide {{image.id}}</h4>
+        <h4>{{image.description}}</h4>
       </div>
     </div>
-		
+
   </div>
 </section>

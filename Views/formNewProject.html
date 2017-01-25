@@ -8,40 +8,83 @@
   </div>
   <div clas="row">
     <div class="col-md-12">
-      <form novalidate name="newProjectForm">
+      <form novalidate name="projectform" ng-submit="createProject(projectform)">
         <div class="form-group-lg">
+          <h2 class="page-header">Contact</h2>
+          <div class=col-md-6>
+            <div class="input-group">
+              <span class="input-group-addon">Nom</span>
+              <input type="text" ng-model="project.authorname" name="authorname" class="form-control" placeholder="Votre nom" aria-describedby="basic-addon1">
+
+            </div>
+          </div>
+          <div class=col-md-6>
+            <div class="input-group">
+              <span class="input-group-addon">Adresse mail</span>
+              <input type="email" name="email" ng-model="project.authormail" class="form-control" placeholder="Votre adresse mail" aria-describedby="basic-addon1" required>
+
+            </div>
+            <div ng-show="projectform.$submitted || projectform.email.$touched">
+              <div ng-show="projectform.email.$error.required" class="text-danger">Email requis.</div>
+            </div>
+          </div>
+          <br />
+          <div class="input-group">
+              Souhaitez-vous rendre ces informations publiques ? <input type="checkbox" ng-model="project.publishauthor"/>
+
+          </div>
+          <br />
+          <h2 class="page-header">Votre projet</h2>
           <div class="input-group">
             <span class="input-group-addon">Nom du projet</span>
-            <input type="text" ng-model="project.title" class="form-control" placeholder="Donnez un nom à votre projet..." aria-describedby="basic-addon1">
+            <input type="text" name="title" ng-model="project.title" class="form-control" placeholder="Donnez un nom à votre projet..." aria-describedby="basic-addon1" required ng-minlength="10">
+
+          </div>
+          <div ng-show="projectform.$submitted || projectform.title.$touched">
+            <div ng-show="projectform.title.$error.required" class="text-danger">Votre projet a besoin d'un nom !</div>
+            <div ng-show="projectform.title.$error.minlength" class="text-danger">10 caractères minimum</div>
           </div>
           <br />
           <div class="input-group">
             <span class="input-group-addon">Description</span>
-            <textarea maxlength="150" rows="3"  type="text" ng-model="project.title" class="form-control" placeholder="Décrivez rapidement votre projet et son objectif... (150 caractères max)" aria-describedby="basic-addon1"></textarea>
+            <textarea maxlength="250" rows="3"  type="text" ng-model="project.resume" class="form-control" placeholder="Décrivez rapidement votre projet et son objectif... (250 caractères max)" aria-describedby="basic-addon1"></textarea>
           </div>
           <br />
           <div class="input-group">
             <span class="input-group-addon">Image principale</span>
-            <input type="text" ng-model="project.img" class="form-control" placeholder="Lien de l'image : http://..." aria-describedby="basic-addon1">
+            <input type="url" name="image" ng-model="project.image" class="form-control" placeholder="Lien de l'image : http://..." aria-describedby="basic-addon1" required>
             <span class="input-group-addon"><i class="fa fa-picture-o"></i></span>
+
+          </div>
+          <div ng-show="projectform.$submitted || projectform.image.$touched">
+            <div ng-show="projectform.image.$error.required" class="text-danger">Votre projet a besoin d'une image !</div>
           </div>
           <br />
-          <h2 class="page-header">Page de présentation</h2>
+          <div class="input-group">
+            <span class="input-group-addon">Financement nécessaire</span>
+            <input type="number" ng-model="project.donationobj" class="form-control" placeholder="5000"/>
+            <span class="input-group-addon">€</span>
+          </div>
+          <br />
+          <h3 class="page-header">Page de présentation</h3>
           <p class="form-text text-muted">
             Mettez en forme la page de présentation de votre projet selon vos envies. Vous pouvez insérer des liens, images, vidéos...
           </p>
           <div class="input-group">
-            <div text-angular="text-angular" name="htmlcontent" ng-model="project.pres" ta-disabled='disabled' id="pres"></div>
+            <div text-angular="text-angular" name="htmlcontent" ng-model="project.pres" ta-disabled='disabled' id="pres" placeholder="Présentez votre projet, ses objectifs, les ressources matérielles et humaines nécessaires à sa réalisation, etc..."></div>
           </div>
           <br />
           <div class="well" ng-click="conditions = !conditions">
             <div class="input-group">
-              <input type="checkbox" ng-model="conditions" ng-click="conditions = !conditions"/>
+              <input type="checkbox" ng-model="conditions" ng-click="conditions = !conditions" name="conditions"/ required>
                J'accepte les conditions d'utilisations
+               <div ng-show="projectform.$submitted || projectform.conditions.$touched">
+                <div ng-show="!conditions" class="text-danger">Acceptez pour continuer.</div>
+              </div>
             </div>
           </div>
           <div class="input-group submit-button-group">
-            <button type="submit" ng-click="createProject(project)" class="btn btn-primary">Créer !</button>
+            <button type="submit" class="btn btn-primary">Créer !</button>
           </div>
 
 
