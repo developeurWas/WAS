@@ -8,7 +8,7 @@
   </div>
   <div clas="row">
     <div class="col-md-12">
-      <form novalidate name="newProjectForm">
+      <form novalidate name="contactform" ng-submit="sendMessage(contactform)">
         <div class="form-group-lg">
           <div class="input-group">
             <span class="input-group-addon">Nom ou pseudo</span>
@@ -35,14 +35,8 @@
             <textarea maxlength="1000" rows="10"  type="text" ng-model="messageATransmettre.message" class="form-control" placeholder="Exprimez vous (1000 caractères max)" aria-describedby="basic-addon1"></textarea>
           </div>
           <br />
-          <div class="well" ng-click="conditions = !conditions">
-            <div class="input-group">
-              <input type="checkbox" ng-model="conditions" ng-click="conditions = !conditions"/>
-               J'accepte les conditions d'utilisations
-            </div>
-          </div>
           <div class="input-group submit-button-group">
-            <button type="submit" ng-click="createProject(project)" class="btn btn-primary">Créer !</button>
+            <button type="submit" class="btn btn-primary">Envoyer !</button>
           </div>
 
 
