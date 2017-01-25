@@ -1,0 +1,54 @@
+<div class="container">
+  <div class="row">
+    <br />
+    <a href="#/home" class="btn btn-primary"><i class="fa fa-undo"></i> Retour</a>
+    <h1 class="page-header">
+      Contactez nous!
+    </h1>
+  </div>
+  <div clas="row">
+    <div class="col-md-12">
+      <form novalidate name="newProjectForm">
+        <div class="form-group-lg">
+          <div class="input-group">
+            <span class="input-group-addon">Nom ou pseudo</span>
+            <input type="text" ng-model="messageATransmettre.pseudo" class="form-control" placeholder="Entrez votre nom ou votre pseudo ..." aria-describedby="basic-addon1">
+          </div>
+          <br />
+          <div class="input-group">
+            <span class="input-group-addon">E-mail</span>
+            <input type="text" ng-model="messageATransmettre.mail" class="form-control" placeholder="votre_e-mail@gmail.com" aria-describedby="basic-addon1">
+          </div>
+          <br />
+          <div class="input-group">
+            <span class="input-group-addon">Image</span>
+            <input type="text" ng-model="messageATransmettre.img" class="form-control" placeholder="Lien de l'image : http://... (facultatif)" aria-describedby="basic-addon1">
+            <span class="input-group-addon"><i class="fa fa-picture-o"></i></span>
+          </div>
+          <br />
+          <div class="input-group">
+            <div ng-include="valideURL(messageATransmettre.img)"></div>
+          </div>
+          <br />
+          <div class="input-group">
+            <span class="input-group-addon">Message</span>
+            <textarea maxlength="1000" rows="10"  type="text" ng-model="messageATransmettre.message" class="form-control" placeholder="Exprimez vous (1000 caractères max)" aria-describedby="basic-addon1"></textarea>
+          </div>
+          <br />
+          <div class="well" ng-click="conditions = !conditions">
+            <div class="input-group">
+              <input type="checkbox" ng-model="conditions" ng-click="conditions = !conditions"/>
+               J'accepte les conditions d'utilisations
+            </div>
+          </div>
+          <div class="input-group submit-button-group">
+            <button type="submit" ng-click="createProject(project)" class="btn btn-primary">Créer !</button>
+          </div>
+
+
+          <br />
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

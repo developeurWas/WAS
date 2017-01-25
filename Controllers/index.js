@@ -36,6 +36,10 @@ puzzleProjectApp.config(['$routeProvider',
 					templateUrl: 'formNewProject.html',
 					controller: 'newProjectCtrl'
 				})
+				.when('/contact',{
+					templateUrl: 'contacts.html',
+					controller: 'contactCtrl'
+				})
         .otherwise({
           redirectTo: '/home'		//Chemin par défaut
         })
