@@ -21,23 +21,23 @@ puzzleProjectApp.config(['$routeProvider',
         $routeProvider
 				.when('/home',	//Pour href="#/home"
 				{
-            templateUrl: 'home.html',	//Template de la page à afficher
+            templateUrl: '/ct/home.html',	//Template de la page à afficher
             controller: 'homeCtrl'	//Controleur correspondant au template
         })
 				.when('/projects',{
-						templateUrl: 'projects.html',
+						templateUrl: '/ct/projects.html',
 						controller: 'projectsCtrl'
 				})
 				.when('/about',{
-						templateUrl: 'about.html',
+						templateUrl: '/ct/about.html',
 						controller: 'homeCtrl'
 				})
 				.when('/newproject',{
-					templateUrl: 'formNewProject.html',
+					templateUrl: '/ct/formNewProject.html',
 					controller: 'newProjectCtrl'
 				})
 				.when('/contact',{
-					templateUrl: 'contacts.html',
+					templateUrl: '/ct/contacts.html',
 					controller: 'contactCtrl'
 				})
         .otherwise({

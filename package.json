@@ -1,0 +1,14 @@
+{
+  "name": "Project_Puzzle",
+  "version": "1.0.0",
+  "description": "",
+  "main": "serveur.js",
+  "keywords": [],
+  "author": "",
+  "license": "",
+  "dependencies": {
+    "angular": "^1.6.2",
+    "express": "^4.14.1",
+    "socket.io": "^1.7.3"
+  }
+}
