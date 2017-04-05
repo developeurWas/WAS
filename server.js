@@ -3,7 +3,7 @@ var express = require('express');
 var app = require('express')();
 var bdd = require('./Script/database.js');//script gérant la base de données
 
-
+var test = require('./Script/test.js');
 
 httpServer = http.createServer(app);
 
@@ -33,11 +33,14 @@ var io = require('socket.io').listen(httpServer);
 
 
 io.sockets.on('connection', function (socket, pseudo) {
-  /*var UsrPseudo;
-  socket.on('nouveau_client', function(pseudo) {
-    UsrPseudo = pseudo;
-    var spawn = addPeople(pseudo);
-    socket.emit('laby', laby);
-    socket.broadcast.emit('nouveauJoueur', spawn);
-  });*/
+  socket.on('project', function() {
+    var pi = test.projet();
+    for (let i = 0; i < pi.length; i++) {
+      socket.emit('projects', pi[i]);
+    }
+    /*for (var p in pi) {
+      console.log(p);
+      socket.emit('projects', p);
+    }*/
+  });
 });
